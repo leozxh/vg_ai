@@ -33,18 +33,17 @@ Visiva AI 是一款基于 AI 的视频创作平台，主打「用 AI 将想法�
 
 | 术语 | 说明 |
 |------|------|
-| Text to Video | 文字转视频 |
-| Image to Video | 图片转视频 |
-| Video Extend | 视频延长 |
-| AI SPICY | 生成 NSFW（成人向）内容的视频 AI 模块（New） |
+| Home / 应用首页 | 应用首页，展示导航、入口、布局、热点模板等 |
 | AI Effects | AI 特效 / 视频特效 |
+| Image to Video | 图片转视频 |
+| Text to Video | 文字转视频 |
+| AI SPICY | 生成 NSFW（成人向）内容的视频 AI 模块（New） |
+| Video Extend | 视频延长 |
 | Image to Image | 图生图 |
 | Text to Image | 文生图 |
 | My Creations | 我的作品 |
-| Credits | 积分（用于生成任务消耗） |
 | Get Extra Credits | 一次性购买积分包（弹窗） |
-| Upgrade / Pro & Basic | 订阅升级（月付/年付，Pro、Basic 套餐） |
-| Hot Templates | 热门模板 |
+| Upgrade / Pro & Basic | 订阅升级（月付/年付，Pro、Basic 套餐）购买积分 |
 
 ---
 
@@ -57,7 +56,7 @@ Visiva AI 是一款基于 AI 的视频创作平台，主打「用 AI 将想法�
 | 应用首页 / Home | https://visiva.ai/app | 导航、入口、布局、热点模板展示 |
 | 文字转视频 | https://visiva.ai/app/text-to-video | 提示词输入、风格/参数、生成、预览、下载 |
 | 图片转视频 | https://visiva.ai/app/image-to-video | 图片上传、参数设置、动效、生成、预览、下载 |
-| AI SPICY | https://visiva.ai/app/ai-spicy | NSFW 内容生成：年龄/身份校验、模板选择、素材上传、生成、预览、下载、内容策略与合规 |
+| AI SPICY | https://visiva.ai/app/ai-spicy | NSFW 内容生成：模板选择、素材上传、生成、预览、下载、内容策略与合规 |
 | 视频延长 | https://visiva.ai/app/video-extend | 视频上传、延长参数、生成、预览、下载 |
 | AI 特效 | https://visiva.ai/app/video-effects | 特效列表、选择、应用、生成、预览、下载 |
 | 图生图 Image to Image | https://visiva.ai/app/image-to-image | 图片上传、参数、生成、预览、下载 |
@@ -137,10 +136,14 @@ Visiva AI 是一款基于 AI 的视频创作平台，主打「用 AI 将想法�
 
 ### 6.2 测试数据准备
 
-- 文字转视频：准备 5–10 条不同风格、长度的描述文本（含边界、敏感词样本）。
-- 图片转视频：准备 JPG/PNG 若干（正常尺寸 + 超大/异常格式各 1–2）。
-- 视频延长：准备短视频（如 3–10 秒）若干，格式为产品支持的格式。
-- 若产品有内容策略，准备合规与不合规样本用于校验提示与拦截。
+- **文字转视频（Text to Video）**：准备 5–10 条不同风格、长度的描述文本（含边界、敏感词样本）。详见《Visiva_APP_测试提示词.md》。
+- **图片转视频（Image to Video）**：准备 JPG/PNG 若干（正常尺寸 + 超大/异常格式各 1–2），以及配套提示词（用于动效描述）。详见《Visiva_APP_测试提示词.md》。
+- **AI SPICY**：准备提示词 5–10 条（含边界、敏感词样本），以及配套图片素材若干。详见《Visiva_APP_测试提示词.md》。
+- **视频延长（Video Extend）**：准备短视频（如 3–10 秒）若干，格式为产品支持的格式。
+- **AI 特效（AI Effects）**：准备测试用视频或图片素材，以及特效选择测试用例。
+- **图生图（Image to Image）**：准备 JPG/PNG 若干（正常尺寸 + 超大/异常格式各 1–2），以及配套提示词。详见《Visiva_APP_测试提示词.md》。
+- **文生图（Text to Image）**：准备 5–10 条不同风格、长度的描述文本（含边界、敏感词样本）。详见《Visiva_APP_测试提示词.md》。
+
 
 ---
 

@@ -4,8 +4,10 @@
 **产品名称：** Visiva AI  
 **被测地址：** https://visiva.ai/app  
 **关联方案：** Visiva_APP_测试方案.md  
+**测试提示词：** Visiva_APP_测试提示词.md  
 
-> 以下各模块测试用例以流程图形式描述，节点旁标注用例编号（如 TC-HOME-01），便于与用例明细对照。
+> 以下各模块测试用例以流程图形式描述，节点旁标注用例编号（如 TC-HOME-01），便于与用例明细对照。  
+> 提示词测试数据请参考《Visiva_APP_测试提示词.md》，包含英语、西班牙语、繁体中文三种语言的测试提示词。
 
 ---
 
@@ -51,7 +53,7 @@ flowchart TB
 | 编号 | 测试点 | 预期结果 |
 |------|--------|----------|
 | TC-T2V-01 | 页面可访问 | 页面加载，输入区可见 |
-| TC-T2V-02 | 提示词输入 | 可输入、可修改，参数可选 |
+| TC-T2V-02 | 提示词输入 | 可输入、可修改，参数可选；支持多语言提示词（英语、西班牙语、繁体中文），详见《Visiva_APP_测试提示词.md》 |
 | TC-T2V-03 | 生成任务提交 | 有提交反馈，进入排队或生成中状态 |
 | TC-T2V-04 | 生成结果展示 | 有视频预览或明确完成/失败提示 |
 | TC-T2V-05 | 下载/分享 | 可下载或跳转分享流程 |
@@ -83,7 +85,7 @@ flowchart TB
 |------|--------|----------|
 | TC-I2V-01 | 页面可访问 | 页面加载，上传区可见 |
 | TC-I2V-02 | 图片上传 | 支持约定格式，上传成功有预览 |
-| TC-I2V-03 | 参数/动效设置 | 参数可调，说明清晰 |
+| TC-I2V-03 | 参数/动效设置 | 参数可调，说明清晰；动效提示词支持多语言，详见《Visiva_APP_测试提示词.md》 |
 | TC-I2V-04 | 生成与结果 | 有进度或状态，完成后可预览视频 |
 | TC-I2V-05 | 下载 | 可下载生成视频 |
 | TC-I2V-06 | 大文件/异常格式 | 有大小/格式限制提示 |
@@ -139,7 +141,7 @@ flowchart TB
 |------|--------|----------|
 | TC-SPY-01 | 访问与年龄/身份校验 | 未满龄或未通过校验时不可进入，有明确限制提示；通过后可进入（New 标签入口可见） |
 | TC-SPY-02 | NSFW 模板选择 | 可选成人向模板/风格，说明与警示清晰 |
-| TC-SPY-03 | 素材/参数 | 可上传素材或填写参数，符合内容策略要求 |
+| TC-SPY-03 | 素材/参数 | 可上传素材或填写参数，符合内容策略要求；提示词支持多语言（英语、西班牙语、繁体中文），详见《Visiva_APP_测试提示词.md》 |
 | TC-SPY-04 | 提交生成 | 有提交反馈，进入生成状态；违规内容被拒绝时有提示 |
 | TC-SPY-05 | 预览与下载 | 生成完成后可预览、下载；成品符合平台 NSFW 与合规策略 |
 
@@ -168,7 +170,31 @@ flowchart TB
 
 ---
 
-## 七、图生图（Image to Image）— Image AI
+## 七、热门模板（Hot Templates）
+
+> 热门模板在首页及各个功能入口展示，用户可通过模板快速进入创作流程。测试需覆盖模板展示、分类筛选、跳转等功能。
+
+```mermaid
+flowchart TB
+    Start([开始]) --> A[TC-HT-01<br/>访问首页热门模板]
+    A --> B[TC-HT-02<br/>模板分类与筛选]
+    B --> C[TC-HT-03<br/>模板详情/预览]
+    C --> D[TC-HT-04<br/>使用模板进入创作]
+    D --> E[TC-HT-05<br/>从其他入口访问模板]
+    E --> End([结束])
+```
+
+| 编号 | 测试点 | 预期结果 |
+|------|--------|----------|
+| TC-HT-01 | 首页热门模板展示 | 首页「Hot Templates」区域正常展示，模板卡片/列表可见，可点击 |
+| TC-HT-02 | 模板分类与筛选 | 模板按分类展示（如「Hottest Seductive」「Deep kiss」等），分类切换正确，筛选功能可用 |
+| TC-HT-03 | 模板详情/预览 | 点击模板可查看详情或预览，信息展示完整 |
+| TC-HT-04 | 使用模板进入创作 | 点击「使用模板」或类似按钮，可正确跳转至对应创作流程（Text to Video、Image to Video、AI SPICY 等） |
+| TC-HT-05 | 从其他入口访问模板 | 从 AI 特效、首页等入口访问模板，跳转正确，状态同步 |
+
+---
+
+## 八、图生图（Image to Image）— Image AI
 
 ```mermaid
 flowchart TB
@@ -184,13 +210,13 @@ flowchart TB
 |------|--------|----------|
 | TC-I2I-01 | 页面可访问 | 页面加载，上传区可见（Image AI 入口） |
 | TC-I2I-02 | 图片上传 | 支持约定格式，上传成功有预览 |
-| TC-I2I-03 | 参数/风格设置 | 参数可调，说明清晰 |
+| TC-I2I-03 | 参数/风格设置 | 参数可调，说明清晰；风格转换提示词支持多语言，详见《Visiva_APP_测试提示词.md》 |
 | TC-I2I-04 | 提交生成 | 有提交反馈，生成完成后可预览 |
 | TC-I2I-05 | 预览与下载 | 可预览、下载生成图片 |
 
 ---
 
-## 八、文生图（Text to Image）— Image AI
+## 九、文生图（Text to Image）— Image AI
 
 ```mermaid
 flowchart TB
@@ -205,14 +231,14 @@ flowchart TB
 | 编号 | 测试点 | 预期结果 |
 |------|--------|----------|
 | TC-T2I-01 | 页面可访问 | 页面加载，输入区可见（Image AI 入口） |
-| TC-T2I-02 | 提示词与参数 | 可输入、可修改，参数可选 |
+| TC-T2I-02 | 提示词与参数 | 可输入、可修改，参数可选；支持多语言提示词（英语、西班牙语、繁体中文），详见《Visiva_APP_测试提示词.md》 |
 | TC-T2I-03 | 提交生成 | 有提交反馈，进入生成状态 |
 | TC-T2I-04 | 结果展示 | 有图片预览或完成/失败提示 |
 | TC-T2I-05 | 预览与下载 | 可预览、下载生成图片 |
 
 ---
 
-## 九、我的作品（My Creations）
+## 十、我的作品（My Creations）
 
 ```mermaid
 flowchart TB
@@ -234,7 +260,7 @@ flowchart TB
 
 ---
 
-## 十、购买积分 / 升级（Upgrade Now）
+## 十一、购买积分 / 升级（Upgrade Now）
 
 > 购买积分有两种方式：① **Get Extra Credits**（一次性积分包）；② **Upgrade to get more credits**（订阅 Pro/Basic，月付/年付）。入口为侧栏「Upgrade Now」。
 
@@ -270,7 +296,7 @@ flowchart TB
 
 ---
 
-## 十一、登录与注册（Log in / Sign Up）
+## 十二、登录与注册（Log in / Sign Up）
 
 > **登录页**（Log in to Visiva）：Google 登录、邮箱/密码、忘记密码、Sign up for free、条款与关闭。**注册页**（Sign Up for Visiva AI）：邮箱与密码、Create account、Already have an account? Login、条款与关闭。
 
@@ -323,7 +349,7 @@ flowchart TB
 
 ---
 
-## 十二、手机端浏览器兼容性（Mobile Browser）
+## 十三、手机端浏览器兼容性（Mobile Browser）
 
 > 本版支持手机端浏览器访问，需在手机浏览器（如 Safari iOS、Chrome Android）或 PC 开发者工具模拟手机视口下，验证布局、导航与核心流程可用。
 
@@ -353,7 +379,7 @@ flowchart TB
 
 ---
 
-## 十三、账号与权益（若本期包含）
+## 十四、账号与权益（若本期包含）
 
 ```mermaid
 flowchart LR
@@ -371,7 +397,7 @@ flowchart LR
 
 ---
 
-## 十四、通用与合规
+## 十五、通用与合规
 
 ```mermaid
 flowchart TB
@@ -386,7 +412,7 @@ flowchart TB
 |------|--------|----------|
 | TC-GEN-01 | FAQ/帮助 | 内容可读、链接有效 |
 | TC-GEN-02 | 条款与隐私 | 页面可访问，内容符合产品说明 |
-| TC-GEN-03 | 内容策略提示 | 有拒绝或提示，不生成违规结果 |
+| TC-GEN-03 | 内容策略提示 | 有拒绝或提示，不生成违规结果；使用《Visiva_APP_测试提示词.md》中的敏感词场景进行验证 |
 | TC-GEN-04 | 水印与版权 | 符合产品说明（如「无水印」或「AI 生成」标识） |
 
 ---
@@ -401,6 +427,7 @@ flowchart TB
 | 视频延长 | 6 | TC-VE-01 ~ TC-VE-06 |
 | AI SPICY | 5 | TC-SPY-01 ~ TC-SPY-05 |
 | AI 特效 | 5 | TC-EFF-01 ~ TC-EFF-05 |
+| 热门模板 | 5 | TC-HT-01 ~ TC-HT-05 |
 | 图生图 | 5 | TC-I2I-01 ~ TC-I2I-05 |
 | 文生图 | 5 | TC-T2I-01 ~ TC-T2I-05 |
 | 我的作品 | 5 | TC-MC-01 ~ TC-MC-05 |
@@ -409,7 +436,7 @@ flowchart TB
 | 账号与权益 | 3 | TC-ACC-01 ~ TC-ACC-03 |
 | 手机端浏览器兼容性 | 8 | TC-MOB-01 ~ TC-MOB-08 |
 | 通用与合规 | 4 | TC-GEN-01 ~ TC-GEN-04 |
-| **合计** | **88** | — |
+| **合计** | **93** | — |
 
 ---
 
@@ -423,6 +450,7 @@ flowchart TB
 | AI SPICY | https://visiva.ai/app/ai-spicy |
 | 视频延长 | https://visiva.ai/app/video-extend |
 | AI 特效 | https://visiva.ai/app/video-effects |
+| 热门模板 | 首页及模板入口（无独立 URL，通过首页或各功能入口访问） |
 | 图生图 | https://visiva.ai/app/image-to-image |
 | 文生图 | https://visiva.ai/app/text-to-image |
 | 我的作品 | https://visiva.ai/app/creations |
